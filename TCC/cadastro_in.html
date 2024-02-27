@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="cadastro_in.css">
+</head>
+<body>
+
+    <div class="hero">
+        <div class="form-box">
+            <p class="cadastro-investidor-titulo"><b>Cadastro Investidor/Usuário</b></p>
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="pessoa_juridica()"><b>Pessoa Física</b></button>
+                <button type="button" class="toggle-btn" onclick="pessoa_fisica()"><b>Pessoa Jurídica</b></button>
+            </div>
+            
+            <form id="formPF" class="input-group" method="POST" action="conexao.php">
+                <input type="text" name="nome" class="input-field" placeholder="Nome Completo" required>
+                <input type="text" name="cpf" class="input-field" id="cpf" placeholder="CPF" required>
+                <input type="date" name="data_nasc" class="input-field" required>
+                <input type="text" name="endereco" id="enderecoPF" class="input-field" placeholder="Endereço" required>
+                <input type="text" name="telefone" id="telefonePF" class="input-field" placeholder="Telefone" required>
+                <input type="email" name="email" id="emailPF" class="input-field" placeholder="E-mail" required>
+                <input type="password" name="senha" id="senhaPF" class="input-field" placeholder="Senha" required>
+                <input type="checkbox" class="check-box"><span>Lembrar Senha</span>
+                <button type="submit" class="submit-btn" name="submitPF"><b>Cadastrar</b></button>
+                <p class="cadastro-text-pf">Se você já realizou seu cadastro, <a href="/Login/login.html">clique aqui</a> para fazer login.</p>
+            </form>
+
+            <form id="formPJ" class="input-group" method="POST" action="conexao2.php">
+                <input type="text" name="nomeEmpresa" class="input-field" placeholder="Nome da Empresa" required>
+                <input type="text" name="cnpj" class="input-field" placeholder="CNPJ" oninput="formatCNPJ(this)" required>
+                <input type="text" name="telefonePJ" class="input-field" placeholder="Telefone" required>
+                <input type="email" name="emailPJ" id="emailPJ" class="input-field" placeholder="E-mail" required>
+                <input type="password" name="senhaPJ" id="senhaPJ" class="input-field" placeholder="Senha" required>
+                <input type="checkbox" class="check-box"><span>Lembrar Senha</span>
+                <button type="submit" class="submit-btn" name="submitPJ" ><b>Cadastrar</b></button>
+                <p class="cadastro-text-pj">Se você já realizou seu cadastro, <a href="/Login/login.html">clique aqui</a> para fazer login.</p>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="cadastro_in.js"></script>
+
+    <div name="aviso"><script> alert("CPF ja cadastrado")</script></div>
+    
+
+</body>
+</html>
